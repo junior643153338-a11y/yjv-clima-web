@@ -1,0 +1,4 @@
+exclude:
+  - tools
+  - content
+  - README.md
