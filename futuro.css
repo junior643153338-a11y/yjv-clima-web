@@ -1,0 +1,142 @@
+/* Estilo futurista: se carga después de los estilos de cada página */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&display=swap');
+
+:root {
+  --bg: #050816 !important;
+  --bg-alt: #0A1130 !important;
+  --ink: #E8F1FF !important;
+  --ink-soft: #9AABC9 !important;
+  --accent: #00E5FF !important;
+  --accent-ink: #03121C !important;
+  --cool: #A78BFA !important;
+  --line: rgba(0, 229, 255, 0.16) !important;
+  --card: rgba(255, 255, 255, 0.04) !important;
+  --glow: 0 0 24px rgba(0, 229, 255, 0.35);
+  --grad: linear-gradient(90deg, #00E5FF 0%, #3B82F6 100%);
+  --radius: 12px !important;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(900px 500px at 85% -10%, rgba(139, 92, 246, 0.22), transparent 60%),
+    radial-gradient(800px 500px at -10% 20%, rgba(0, 229, 255, 0.14), transparent 60%),
+    linear-gradient(rgba(0, 229, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.04) 1px, transparent 1px);
+  background-size: auto, auto, 48px 48px, 48px 48px;
+  background-attachment: fixed;
+}
+::selection { background: rgba(0, 229, 255, 0.35); color: #fff; }
+
+/* Cabecera */
+header {
+  background: rgba(5, 8, 22, 0.72) !important;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid transparent !important;
+  border-image: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.6), rgba(139, 92, 246, 0.6), transparent) 1;
+}
+.logo { font-family: 'Orbitron', 'Space Grotesk', sans-serif; letter-spacing: 0.04em; }
+.logo span { color: var(--accent); text-shadow: var(--glow); }
+
+/* Botones */
+.btn { border-radius: 999px; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.btn-accent { background: var(--grad) !important; color: var(--accent-ink) !important; box-shadow: 0 0 18px rgba(0, 229, 255, 0.35); }
+.btn-accent:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(0, 229, 255, 0.6); }
+.btn-ghost { background: rgba(255, 255, 255, 0.03); border-color: rgba(0, 229, 255, 0.35) !important; }
+.btn-ghost:hover { border-color: var(--accent) !important; box-shadow: var(--glow); }
+
+/* Portada */
+.hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+.hero::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  box-shadow: 0 0 16px var(--accent);
+}
+.eyebrow {
+  text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.78rem !important;
+  display: inline-block; padding: 6px 12px; border: 1px solid rgba(167, 139, 250, 0.45);
+  border-radius: 999px; background: rgba(167, 139, 250, 0.08);
+}
+.hero h1, .section-head h2 {
+  background: linear-gradient(90deg, #FFFFFF 0%, #A5F3FC 55%, #C4B5FD 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent !important;
+}
+.gauge-track { stroke: rgba(0, 229, 255, 0.12); }
+.gauge-fill { stroke: var(--accent); filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.8)); }
+.temp-to { font-family: 'Orbitron', 'Space Grotesk', sans-serif; text-shadow: 0 0 22px rgba(0, 229, 255, 0.6); }
+.hero-visual::before {
+  content: ""; position: absolute; inset: 8%; border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.16), transparent 65%);
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+@keyframes pulseGlow { 50% { transform: scale(1.08); opacity: .6; } }
+
+/* Tarjetas tipo cristal */
+.services-grid, .faq-list { gap: 14px !important; background: none !important; border: 0 !important; }
+.service-card, .product-card, .review-card, .faq-item, .calc-card, .area-box {
+  background: var(--card) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 16px !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.service-card:hover, .product-card:hover, .review-card:hover, .faq-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 229, 255, 0.5) !important;
+  box-shadow: 0 0 0 1px rgba(0, 229, 255, 0.15), 0 10px 40px rgba(0, 229, 255, 0.12);
+}
+.service-card { border-left: 1px solid var(--line) !important; position: relative; }
+.service-card::before {
+  content: ""; position: absolute; left: 0; top: 18px; bottom: 18px; width: 3px; border-radius: 3px;
+  background: var(--grad); box-shadow: var(--glow);
+}
+
+/* Cifras y precios */
+.trust { background: rgba(10, 17, 48, 0.6) !important; }
+.trust-num, .product-price, .calc-result .range {
+  font-family: 'Orbitron', 'Space Grotesk', sans-serif;
+  color: var(--accent) !important; text-shadow: 0 0 18px rgba(0, 229, 255, 0.55);
+}
+.process-step { border-top: 2px solid transparent !important; border-image: var(--grad) 1; }
+.process-step .num { font-family: 'Orbitron', 'Space Grotesk', sans-serif; color: var(--accent); }
+.stars { color: #FACC15 !important; text-shadow: 0 0 10px rgba(250, 204, 21, 0.5); }
+
+/* Calculadora */
+.calc-section { background: transparent !important; }
+.calc-progress span.done { background: var(--grad) !important; box-shadow: var(--glow); }
+.calc-opt { background: rgba(255, 255, 255, 0.03) !important; color: var(--ink); border-radius: 12px !important; }
+.calc-opt:hover { border-color: var(--accent) !important; box-shadow: var(--glow); }
+.calc-opt.selected { border-color: var(--accent) !important; background: rgba(0, 229, 255, 0.1) !important; }
+.calc-form-field input { background: rgba(255, 255, 255, 0.04) !important; }
+.calc-form-field input:focus { outline: none; border-color: var(--accent); box-shadow: var(--glow); }
+
+/* Secciones con fondo propio */
+section[style*="--bg-alt"] { background: rgba(10, 17, 48, 0.55) !important; }
+.cta-final {
+  background: radial-gradient(600px 300px at 50% 0%, rgba(0, 229, 255, 0.18), transparent 70%), #070C24 !important;
+  border-top: 1px solid var(--line);
+}
+.cta-final h2 { color: var(--ink) !important; }
+
+/* Enlaces, galería y pie */
+.prose a, .link-grid a, .service-card a { color: #A5F3FC !important; }
+.link-grid a { background: rgba(255, 255, 255, 0.03) !important; border-color: var(--line) !important; transition: all .2s ease; }
+.link-grid a:hover { border-color: var(--accent) !important; box-shadow: var(--glow); }
+.gallery img { border: 1px solid var(--line) !important; border-radius: 14px !important; transition: transform .25s ease, box-shadow .25s ease; }
+.gallery img:hover { transform: scale(1.03); box-shadow: 0 0 28px rgba(0, 229, 255, 0.35); }
+footer { background: rgba(3, 6, 18, 0.8); }
+.wa-float { box-shadow: 0 0 22px rgba(37, 211, 102, 0.55) !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual::before { animation: none; }
+  .btn, .service-card, .product-card, .review-card, .faq-item, .gallery img { transition: none; }
+}
+
+@media (max-width: 760px) {
+  .temp-to { font-size: 2.5rem !important; }
+  .temp-from { font-size: 1.2rem !important; }
+  .temp-label { font-size: 0.72rem !important; }
+}
