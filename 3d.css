@@ -66,3 +66,18 @@ html:not(.js-intro) #intro3d { display: none; }
 }
 #intro3d { animation: introAuto .7s ease 4s forwards; }
 @keyframes introAuto { to { opacity: 0; visibility: hidden; } }
+
+/* Ajustes de presentación en móvil */
+@media (max-width: 760px) {
+  .product-grid { grid-template-columns: 1fr; overflow: visible; gap: 14px; }
+  .product-card { display: grid !important; grid-template-columns: 64px 1fr; column-gap: 14px; text-align: left !important; align-items: center !important; padding: 18px !important; }
+  .product-card > * { grid-column: 2; }
+  .product-card .product-icon { grid-column: 1; grid-row: 1 / span 5; width: 60px; height: 60px; margin: 0; align-self: center; }
+  .product-card .product-tagline { margin-bottom: 8px; }
+  .product-card .product-price-label { margin-bottom: 0; }
+  .product-card .product-total { margin-bottom: 12px; }
+  .product-card .btn { grid-column: 1 / -1; }
+  .gallery-work { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+  .gallery-work img { aspect-ratio: 4 / 5 !important; }
+  .air3d i { height: 50px; }
+}
