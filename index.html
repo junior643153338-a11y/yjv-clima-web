@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<script>try{if(!sessionStorage.yjvIntro&&location.search.indexOf("sinintro")<0){sessionStorage.yjvIntro=1;document.documentElement.classList.add("js-intro")}}catch(e){}</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="index, follow">
@@ -487,9 +488,15 @@
   .site-links { font-size: 0.85rem; color: var(--ink-soft); margin-top: 10px; width: 100%; }
   .site-links a { color: var(--ink-soft); margin-right: 10px; }
 </style>
+<link rel="stylesheet" href="/3d.css">
 </head>
 <body>
 
+<div id="intro3d" aria-hidden="true">
+  <div class="tunnel"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="intro-logo">YJV <span>Clima</span> y Confort<small>Clima seguro y confortable en Madrid</small></div>
+  <button type="button" class="intro-skip">Entrar</button>
+</div>
 <header>
   <div class="wrap">
     <div class="logo">YJV <span>Clima</span> y Confort</div>
@@ -516,17 +523,27 @@
         <a class="btn btn-accent" href="https://wa.me/34643153338?text=Hola%2C%20quiero%20un%20presupuesto%20para%20instalar%20aire%20acondicionado" target="_blank" rel="noopener">Pide tu presupuesto gratis</a>
         <a class="btn btn-ghost" href="tel:+34643153338">Llamar ahora</a>
       </div>
+      <ul class="safe-strip">
+        <li><span>✓</span>Presupuesto gratis</li>
+        <li><span>✓</span>Instalador RITE</li>
+        <li><span>✓</span>2 años de garantía</li>
+        <li><span>✓</span>Seguro RC</li>
+      </ul>
     </div>
-    <div class="hero-visual">
-      <svg class="gauge-ring" viewBox="0 0 200 200">
-        <circle class="gauge-track" cx="100" cy="100" r="80"></circle>
-        <circle class="gauge-fill" cx="100" cy="100" r="80"></circle>
-      </svg>
-      <div class="gauge-center">
-        <div class="temp-from">32°C</div>
-        <div class="temp-to">22°C</div>
-        <div class="temp-label">en tu salón, hoy mismo</div>
+    <div class="hero-visual scene3d" aria-hidden="true">
+      <div class="floor3d"></div>
+      <div class="rig3d">
+        <div class="split3d">
+          <div class="f front"><span class="brand3d">YJV</span><span class="disp3d">22°</span><span class="led3d"></span></div>
+          <div class="f back"></div>
+          <div class="f top"></div>
+          <div class="f bottom"><i></i><i></i><i></i></div>
+          <div class="f left"></div>
+          <div class="f right"></div>
+        </div>
+        <div class="air3d"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
       </div>
+      <div class="chip3d">32°C → <b>22°C</b><small>en tu salón, hoy mismo</small></div>
     </div>
   </div>
 </section>
@@ -960,5 +977,6 @@
   <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3C8.86 3 3.03 8.82 3.03 16c0 2.3.6 4.54 1.75 6.52L3 29l6.65-1.74A12.95 12.95 0 0 0 16.04 29C23.2 29 29 23.18 29 16S23.2 3 16.04 3zm0 23.8c-2.01 0-3.98-.54-5.7-1.56l-.41-.24-3.95 1.03 1.05-3.85-.27-.4A10.78 10.78 0 0 1 5.2 16c0-5.97 4.86-10.82 10.84-10.82 5.97 0 10.8 4.85 10.8 10.82 0 5.97-4.83 10.8-10.8 10.8zm5.93-8.1c-.33-.16-1.93-.95-2.23-1.06-.3-.11-.52-.16-.73.17-.22.32-.84 1.05-1.03 1.27-.19.22-.38.24-.7.08-.33-.16-1.38-.51-2.62-1.62-.97-.86-1.62-1.93-1.81-2.25-.19-.33-.02-.5.14-.66.15-.15.33-.38.49-.57.16-.19.22-.33.33-.54.11-.22.05-.41-.03-.57-.08-.16-.73-1.76-1-2.41-.26-.63-.53-.55-.73-.56h-.62c-.22 0-.57.08-.87.41-.3.32-1.14 1.11-1.14 2.71s1.17 3.15 1.33 3.36c.16.22 2.3 3.5 5.57 4.91.78.34 1.39.54 1.86.69.78.25 1.49.21 2.05.13.63-.09 1.93-.79 2.2-1.55.27-.76.27-1.41.19-1.55-.08-.14-.3-.22-.62-.38z"/></svg>
   <span>WhatsApp</span>
 </a>
+<script src="/3d.js" defer></script>
 </body>
 </html>
