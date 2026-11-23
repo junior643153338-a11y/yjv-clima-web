@@ -1,12 +1,5 @@
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var intro = document.getElementById('intro3d');
-  if (intro) {
-    var close = function () { intro.classList.add('done'); };
-    intro.querySelector('.intro-skip').addEventListener('click', close);
-    intro.addEventListener('click', close);
-    setTimeout(close, reduce ? 300 : 2600);
-  }
   var rig = document.querySelector('.rig3d');
   if (rig && !reduce) {
     var set = function (x, y) {
